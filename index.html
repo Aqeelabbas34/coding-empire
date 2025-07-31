@@ -4,47 +4,40 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Coding Empire ― Software Development Experts</title>
+  <link rel="icon" type="image/png" href="assets/logo.png" />
 
-  <!-- ====== Style ====== -->
   <style>
-    /* ----------  Theme Colors  ---------- */
     :root {
       --navy:  #06101e;
       --gold:  #c49a3c;
       --white: #f4f4f4;
     }
 
-    /* ----------  Resets & Base  ---------- */
     *, *::before, *::after { box-sizing:border-box; margin:0; padding:0; }
     body  { font-family:'Inter',Helvetica,Arial,sans-serif; background:var(--navy); color:var(--white); line-height:1.6; overflow-x:hidden; }
     a     { color:var(--gold); text-decoration:none; }
     img   { max-width:100%; display:block; }
     .container { width:90%; max-width:1200px; margin:0 auto; }
 
-    /* ----------  Navbar  ---------- */
     header { position:sticky; top:0; background:var(--navy); z-index:10; border-bottom:1px solid rgba(255,255,255,0.08); }
     .nav   { display:flex; align-items:center; justify-content:space-between; padding:0.75rem 0; }
     .nav img{ height:48px; }
     .nav ul{ list-style:none; display:flex; gap:2rem; }
     .nav li a{ font-weight:500; }
 
-    /* ----------  Hero  ---------- */
     .hero { display:grid; place-items:center; text-align:center; padding:7rem 1rem 6rem; background:linear-gradient(180deg,var(--navy) 0%,#050a16 100%); }
     .hero h1{ font-size:clamp(2.5rem,5vw,4rem); color:var(--gold); margin-bottom:1rem; font-weight:700; }
     .hero p { max-width:640px; margin:0 auto 2.5rem; font-size:1.15rem; }
 
-    /* ----------  Buttons  ---------- */
     .btn{ display:inline-block; background:var(--gold); color:var(--navy); padding:0.9rem 2.2rem; font-weight:700; border-radius:4px; transition:0.25s; }
     .btn:hover{ filter:brightness(1.1); transform:translateY(-2px); }
     .btn--outline{ background:transparent; color:var(--gold); border:2px solid var(--gold); margin-left:1rem; }
     .btn--outline:hover{ background:var(--gold); color:var(--navy); }
 
-    /* ----------  ABOUT  ---------- */
     .about{ background:#0b1628; padding:4.5rem 1rem; }
     .about h2{ text-align:center; color:var(--gold); font-size:2.25rem; margin-bottom:2rem; font-weight:600; }
     .about-content{ max-width:900px; margin:0 auto; font-size:1.05rem; line-height:1.8; text-align:center; }
 
-    /* ----------  Services  ---------- */
     .services{ padding:4.5rem 0; }
     .services h2{ text-align:center; color:var(--gold); font-size:2.25rem; margin-bottom:3rem; font-weight:600; }
     .cards{ display:grid; gap:2rem; grid-template-columns:repeat(auto-fit,minmax(280px,1fr)); }
@@ -52,11 +45,9 @@
     .card:hover{ transform:translateY(-6px); }
     .card h3{ color:var(--gold); margin-bottom:0.75rem; font-size:1.35rem; }
 
-    /* ----------  CTA Banner  ---------- */
     .cta{ background:#0b1628; text-align:center; padding:4rem 1rem; }
     .cta h2{ color:var(--gold); font-size:2rem; margin-bottom:1.25rem; }
 
-    /* ----------  Footer  ---------- */
     footer{ border-top:1px solid rgba(255,255,255,0.08); padding:2rem 0; text-align:center; font-size:0.9rem; }
     footer span{ color:var(--gold); }
   </style>
@@ -69,7 +60,7 @@
       <a href="#"><img src="assets/logo.png" alt="Coding Empire Logo"></a>
       <nav>
         <ul>
-            <li><a href="#about">About</a></li>
+          <li><a href="#about">About</a></li>
           <li><a href="#services">Services</a></li>
           <li><a href="#contact">Contact</a></li>
         </ul>
@@ -83,12 +74,12 @@
       <h1>Delivering Scalable Software.<br />Powering Digital Growth.</h1>
       <p>From concept to production, Coding Empire crafts robust mobile &amp; web solutions that fuel your business ambitions—while empowering tomorrow’s tech talent.</p>
 
-      <!-- Action buttons -->
-      <!-- mailto with pre‑filled subject & body -->
-      <a class="btn" href="mailto:info@codingempire.com?subject=Free%20Consultation%20Request&body=Hi%20Coding%20Empire%2C%0D%0AI%E2%80%99d%20like%20a%20free%20consultation%20regarding%20...">Get&nbsp;a&nbsp;Free&nbsp;Consultation</a>
+      <!-- Smart Email Button -->
+      <a id="consult-btn" class="btn">Get&nbsp;a&nbsp;Free&nbsp;Consultation</a>
 
       <!-- scroll to footer contact -->
-      <a class="btn btn--outline" href="#contact">Contact&nbsp;Us</a>
+     <a class="btn btn--outline" href="#contact" style="margin-top:1.5rem;">Contact&nbsp;Us</a>
+
     </div>
   </section>
 
@@ -122,10 +113,8 @@
   <section id="cta" class="cta">
     <div class="container">
       <h2>Ready to build your tech empire?</h2>
-      <!-- WhatsApp “Click to Chat” link -->
-      <a class="btn" target="_blank"
-         href="https://wa.me/923470764073?text=Hi%20Coding%20Empire%2C%20I%E2%80%99d%20like%20to%20schedule%20a%20call.">
-         Schedule&nbsp;a&nbsp;Call
+      <a class="btn" target="_blank" href="https://wa.me/923470764073?text=Hi%20Coding%20Empire%2C%20I%E2%80%99d%20like%20to%20schedule%20a%20call.">
+        Schedule&nbsp;a&nbsp;Call
       </a>
     </div>
   </section>
@@ -134,6 +123,21 @@
   <footer id="contact">
     <p>© <span>Coding Empire</span> 2025 &nbsp;|&nbsp; info@codingempire.com &nbsp;|&nbsp; +92&nbsp;347&nbsp;076&nbsp;4073</p>
   </footer>
+
+  <!-- ====== Smart Email Script ====== -->
+  <script>
+    document.getElementById("consult-btn").addEventListener("click", function () {
+      const isMobile = /Mobi|Android|iPhone|iPad/i.test(navigator.userAgent);
+      const subject = "Free Consultation Request";
+      const body = "Hi Coding Empire,\nI'd like a free consultation regarding ...";
+
+      if (isMobile) {
+        window.location.href = `mailto:info@codingempire.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+      } else {
+        window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=info@codingempire.com&su=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`, "_blank");
+      }
+    });
+  </script>
 
 </body>
 </html>
